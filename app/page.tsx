@@ -13,6 +13,23 @@ import WhyUs from "@/components/sections/WhyUs";
 export default function Home() {
   return (
     <>
+      <div 
+        className="fixed inset-0 z-[-1] h-full w-full pointer-events-none"
+        style={{
+          background: `linear-gradient(
+            to bottom,
+            #EAF5F0 0%,
+            #F4F0FA 18%,
+            #EDE8F7 32%,
+            #E8F3EE 48%,
+            #F2EEF9 64%,
+            #EAF5F0 78%,
+            #2C2C3E 88%,
+            #1E1E2E 100%
+          )`,
+          backgroundAttachment: 'fixed'
+        }}
+      />
       <Navbar />
       <PageTransition>
         <Hero />
