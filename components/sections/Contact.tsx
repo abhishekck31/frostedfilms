@@ -66,7 +66,7 @@ const initialForm: FormState = {
 };
 
 const inputClass =
-  "w-full rounded-xl border border-lavender/30 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-lavender-light/40 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/25";
+  "w-full bg-white/5 border-b border-mint/30 px-4 py-3 text-sm text-white placeholder:text-white/30 outline-none transition-all duration-300 focus:border-mint focus:shadow-[0_4px_12px_rgba(168,213,194,0.1)] rounded-t-xl rounded-b-none";
 
 export default function Contact() {
   const [form, setForm] = useState<FormState>(initialForm);
@@ -102,8 +102,24 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-pad bg-deep pb-28 md:pb-24">
-      <div className="container-xl">
+    <section id="contact" className="flow-section relative overflow-hidden">
+      {/* Dark Zone Ambient Orbs */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div 
+          className="absolute left-[-100px] bottom-[-100px] w-[400px] h-[400px] rounded-full opacity-[0.08] blur-[80px]"
+          style={{ background: 'radial-gradient(circle, #A8D5C2 0%, transparent 70%)' }}
+        />
+        <div 
+          className="absolute right-[-150px] top-[-100px] w-[500px] h-[500px] rounded-full opacity-10 blur-[100px]"
+          style={{ background: 'radial-gradient(circle, #C4B8E0 0%, transparent 70%)' }}
+        />
+        <div 
+          className="absolute right-[10%] top-[40%] w-[600px] h-[600px] rounded-full opacity-5 blur-[120px]"
+          style={{ background: 'radial-gradient(circle, #A8D5C2 0%, transparent 70%)' }}
+        />
+      </div>
+
+      <div className="container-xl relative z-10">
         <div className="grid gap-12 lg:grid-cols-2 lg:gap-16">
           <motion.div
             initial={{ opacity: 0, x: -32 }}
@@ -162,10 +178,10 @@ export default function Contact() {
               ease: [0.22, 1, 0.36, 1],
             }}
           >
-            <div className="glass-card p-6 md:p-8">
-              <form onSubmit={handleSubmit} className="space-y-5" noValidate>
+            <div className="pt-2">
+              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
                 <div>
-                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-deep">
+                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-white/90">
                     Name <span className="text-mint-dark">*</span>
                   </label>
                   <input
@@ -175,7 +191,7 @@ export default function Contact() {
                     onChange={(e) => updateField("name", e.target.value)}
                     className={cn(
                       inputClass,
-                      "text-deep placeholder:text-muted/60 focus:text-deep",
+                      "text-white",
                       errors.name && "border-red-400/60"
                     )}
                     placeholder="Your full name"
@@ -185,9 +201,9 @@ export default function Contact() {
                   )}
                 </div>
 
-                <div className="grid gap-5 sm:grid-cols-2">
+                <div className="grid gap-6 sm:grid-cols-2">
                   <div>
-                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-deep">
+                    <label htmlFor="phone" className="mb-1.5 block text-sm font-medium text-white/90">
                       Phone <span className="text-mint-dark">*</span>
                     </label>
                     <input
@@ -197,7 +213,7 @@ export default function Contact() {
                       onChange={(e) => updateField("phone", e.target.value)}
                       className={cn(
                         inputClass,
-                        "text-deep placeholder:text-muted/60 focus:text-deep",
+                        "text-white",
                         errors.phone && "border-red-400/60"
                       )}
                       placeholder="10-digit mobile"
@@ -207,7 +223,7 @@ export default function Contact() {
                     )}
                   </div>
                   <div>
-                    <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-deep">
+                    <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-white/90">
                       Email <span className="text-mint-dark">*</span>
                     </label>
                     <input
@@ -217,7 +233,7 @@ export default function Contact() {
                       onChange={(e) => updateField("email", e.target.value)}
                       className={cn(
                         inputClass,
-                        "text-deep placeholder:text-muted/60 focus:text-deep",
+                        "text-white",
                         errors.email && "border-red-400/60"
                       )}
                       placeholder="you@email.com"
@@ -229,7 +245,7 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-deep">
+                  <label htmlFor="service" className="mb-1.5 block text-sm font-medium text-white/90">
                     Service needed
                   </label>
                   <select
@@ -238,7 +254,7 @@ export default function Contact() {
                     onChange={(e) => updateField("service", e.target.value)}
                     className={cn(
                       inputClass,
-                      "text-deep focus:text-deep"
+                      "text-white [&>option]:bg-deep [&>option]:text-white"
                     )}
                   >
                     {serviceOptions.map((option) => (
@@ -250,9 +266,9 @@ export default function Contact() {
                 </div>
 
                 <div>
-                  <label htmlFor="area" className="mb-1.5 block text-sm font-medium text-deep">
+                  <label htmlFor="area" className="mb-1.5 block text-sm font-medium text-white/90">
                     Approximate area in sqft{" "}
-                    <span className="font-normal text-muted">(optional)</span>
+                    <span className="font-normal text-white/40">(optional)</span>
                   </label>
                   <input
                     id="area"
@@ -263,14 +279,14 @@ export default function Contact() {
                     onChange={(e) => updateField("area", e.target.value)}
                     className={cn(
                       inputClass,
-                      "text-deep placeholder:text-muted/60 focus:text-deep"
+                      "text-white"
                     )}
                     placeholder="e.g. 24"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-deep">
+                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-white/90">
                     Message <span className="text-mint-dark">*</span>
                   </label>
                   <textarea
@@ -280,7 +296,7 @@ export default function Contact() {
                     onChange={(e) => updateField("message", e.target.value)}
                     className={cn(
                       inputClass,
-                      "resize-none text-deep placeholder:text-muted/60 focus:text-deep",
+                      "resize-none text-white",
                       errors.message && "border-red-400/60"
                     )}
                     placeholder="Tell us about your project..."
@@ -292,7 +308,7 @@ export default function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-full bg-gradient-to-r from-mint to-lavender px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(168,213,194,0.45)]"
+                  className="mt-4 w-full rounded-full bg-gradient-to-r from-mint to-lavender px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(168,213,194,0.45)]"
                 >
                   Send Enquiry →
                 </button>

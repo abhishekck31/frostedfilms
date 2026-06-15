@@ -65,14 +65,14 @@ function QuoteMark() {
 
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="section-pad bg-white">
+    <section id="testimonials" className="flow-section relative">
       <div className="container-xl">
-        <header className="mx-auto mb-14 max-w-2xl text-center">
-          <SplitReveal as="p" className="mb-4 text-[13px] font-medium uppercase tracking-[0.15em] text-mint-dark">
-            What Clients Say
+        <header className="mx-auto mb-16 max-w-2xl text-center">
+          <SplitReveal as="h2" className="eyebrow mb-4">
+            Client Stories
           </SplitReveal>
-          <GradientHeadline className="headline text-[36px] font-normal tracking-tight text-deep md:text-[44px] md:leading-tight">
-            Trusted Across Bengaluru
+          <GradientHeadline className="headline text-4xl font-normal tracking-tight text-deep md:text-[48px] md:leading-tight">
+            Trusted by Bengaluru's Best
           </GradientHeadline>
         </header>
 
