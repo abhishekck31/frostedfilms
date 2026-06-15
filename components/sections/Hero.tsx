@@ -104,7 +104,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={targetRef}
-      className="relative min-h-screen overflow-hidden flex flex-col justify-center"
+      className="relative min-h-[calc(100vh-80px)] overflow-hidden flex flex-col justify-start"
     >
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -114,7 +114,7 @@ export default function Hero() {
 
       <AmbientOrbs count={6} />
 
-      <div className="container-xl relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center px-6 py-28 md:py-32">
+      <div className="container-xl relative z-10 grid lg:grid-cols-2 gap-12 lg:gap-8 items-center px-6 pt-12 pb-28 md:pt-16 md:pb-32">
         <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
           <motion.div style={{ y: eyebrowY }}>
              <SplitReveal as="p" className="mb-6 text-[13px] font-medium uppercase tracking-[0.15em] text-mint-dark">
