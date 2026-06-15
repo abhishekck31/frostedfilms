@@ -1,9 +1,11 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import { AmbientOrbs } from "@/components/ui/AmbientOrbs";
 import { GradientHeadline, SplitReveal, CountUp } from "@/components/ui/AnimatedText";
+import { MeshGradientDivider } from "@/components/ui/MeshGradientDivider";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
 const benefits = [
   {
@@ -220,10 +222,15 @@ export default function WhyUs() {
   const rightInView = useInView(rightRef, { once: true, margin: "-80px" });
 
   return (
-    <section id="why-us">
-      <div className="section-pad bg-frost-gradient relative overflow-hidden">
+    <section id="why-us" className="relative">
+      <MeshGradientDivider />
+      
+      <div className="flow-section relative z-10">
         <AmbientOrbs count={4} />
-        <div className="container-xl relative z-10">
+        <div className="container-xl relative">
+          {/* Vertical decorative line separator */}
+          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-[1px] bg-lavender/20 -translate-x-1/2" />
+          
           <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
             <motion.div
               ref={leftRef}
@@ -231,7 +238,7 @@ export default function WhyUs() {
               animate={leftInView ? { opacity: 1, x: 0 } : {}}
               transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             >
-              <SplitReveal as="p" className="mb-4 text-[13px] font-medium uppercase tracking-[0.15em] text-mint-dark">
+              <SplitReveal as="h2" className="eyebrow mb-4">
                 Why Choose Us
               </SplitReveal>
               <GradientHeadline className="headline mb-10 text-[32px] font-normal leading-tight tracking-tight text-deep md:text-[42px]">
@@ -286,18 +293,23 @@ export default function WhyUs() {
         </div>
       </div>
 
-      <div className="bg-deep py-14 md:py-16">
-        <div className="container-xl">
-          <div className="grid grid-cols-2 gap-8 md:flex md:items-center md:justify-between md:gap-4">
-            {stats.map((stat, index) => (
-              <StatItem
-                key={stat.label}
-                stat={stat}
-                isLast={index === stats.length - 1}
-              />
-            ))}
+      {/* Translucent Stats Bar Zone */}
+      <div className="relative mt-8">
+        <WaveDivider fill="rgba(44,44,62,0.6)" flip className="absolute -top-[59px] md:-top-[99px] z-10 drop-shadow-[0_-4px_12px_rgba(44,44,62,0.1)]" />
+        <div className="py-14 md:py-16 relative z-20" style={{ background: 'rgba(44,44,62,0.6)', backdropFilter: 'blur(24px)' }}>
+          <div className="container-xl relative z-10">
+            <div className="grid grid-cols-2 gap-8 md:flex md:items-center md:justify-between md:gap-4">
+              {stats.map((stat, index) => (
+                <StatItem
+                  key={stat.label}
+                  stat={stat}
+                  isLast={index === stats.length - 1}
+                />
+              ))}
+            </div>
           </div>
         </div>
+        <WaveDivider fill="rgba(44,44,62,0.6)" className="absolute -bottom-[59px] md:-bottom-[99px] z-10 drop-shadow-[0_4px_12px_rgba(44,44,62,0.1)]" />
       </div>
     </section>
   );
