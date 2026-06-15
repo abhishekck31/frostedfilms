@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { useRef, useState, useMemo } from "react";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
+import { WaveDivider } from "@/components/ui/WaveDivider";
 
 type GalleryCategory = "Frosted" | "Sun Control" | "Decorative" | "Office";
 
@@ -59,16 +60,34 @@ export default function Gallery() {
   });
 
   return (
-    <section id="gallery" className="bg-frost-gradient relative">
+    <section id="gallery" className="relative">
+      {/* Ambient Orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div 
+          className="absolute left-[-100px] top-[20%] w-[500px] h-[500px] rounded-full opacity-20 blur-[80px]"
+          style={{ background: 'radial-gradient(circle, #A8D5C2 0%, transparent 70%)' }}
+        />
+        <div 
+          className="absolute right-[-150px] top-[50%] w-[600px] h-[600px] rounded-full opacity-25 blur-[100px]"
+          style={{ background: 'radial-gradient(circle, #C4B8E0 0%, transparent 70%)' }}
+        />
+      </div>
+
+      {/* Watermark Header */}
+      <div className="hidden md:flex absolute left-0 top-0 bottom-0 w-12 z-20 items-start justify-center pointer-events-none">
+        <div className="sticky top-[50vh] -rotate-90 whitespace-nowrap opacity-15">
+          <span style={{ fontFamily: '"Playfair Display", serif', fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.3em', color: '#2C2C3E' }}>
+            Our Work
+          </span>
+        </div>
+      </div>
+
       {/* DESKTOP LAYOUT (Horizontal Scroll) */}
       <div ref={targetRef} className="hidden md:block relative h-[300vh]">
         <div className="sticky top-0 h-[100vh] overflow-hidden flex">
           {/* LEFT COLUMN: Static Header */}
-          <div className="w-[35%] h-full flex flex-col justify-center pl-[5vw] pr-12 z-10 border-r border-lavender/20 bg-frost-white/60 backdrop-blur-xl">
+          <div className="w-[35%] h-full flex flex-col justify-center pl-[8vw] pr-12 z-10 border-r border-lavender/10 bg-transparent">
             <header className="mb-10">
-              <SplitReveal as="p" className="mb-4 text-[13px] font-medium uppercase tracking-[0.15em] text-mint-dark">
-                Our Work
-              </SplitReveal>
               <GradientHeadline className="headline text-4xl font-normal tracking-tight text-deep md:text-[48px] md:leading-tight">
                 See the Transformation
               </GradientHeadline>
@@ -129,16 +148,10 @@ export default function Gallery() {
                   )}
                   style={{ width: 380, height: item.height }}
                 >
-                  {/* Placeholder Gradient Background */}
+                  {/* Taller thinner frosted panels */}
                   <div
-                    className={cn(
-                      "absolute inset-0 -z-10",
-                      item.variant === "mint"
-                        ? "bg-mint-light/40"
-                        : item.variant === "lavender"
-                        ? "bg-lavender-light/40"
-                        : "bg-frost-white/60"
-                    )}
+                    className="absolute inset-0 -z-10"
+                    style={{ background: 'rgba(255,255,255,0.4)', backdropFilter: 'blur(24px)' }}
                   />
 
                   {/* Overlay on hover */}
@@ -199,14 +212,8 @@ export default function Gallery() {
               style={{ height: 380 }}
             >
               <div
-                className={cn(
-                  "absolute inset-0 -z-10",
-                  item.variant === "mint"
-                    ? "bg-mint-light/40"
-                    : item.variant === "lavender"
-                    ? "bg-lavender-light/40"
-                    : "bg-frost-white/60"
-                )}
+                className="absolute inset-0 -z-10"
+                style={{ background: 'rgba(255,255,255,0.4)', backdropFilter: 'blur(24px)' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/20 to-transparent p-6 flex flex-col justify-end">
                 <span className="w-fit px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold text-white mb-2">
@@ -218,6 +225,9 @@ export default function Gallery() {
           ))}
         </div>
       </div>
+      
+      {/* Transition Out */}
+      <WaveDivider fill="#EAF5F0" className="absolute bottom-0 w-full z-20 pointer-events-none" />
     </section>
   );
 }
