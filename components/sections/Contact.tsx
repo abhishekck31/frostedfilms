@@ -102,7 +102,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="flow-section relative overflow-hidden">
+    <section id="contact" className="flow-section relative overflow-hidden bg-deep">
       {/* Dark Zone Ambient Orbs */}
       <div className="absolute inset-0 pointer-events-none">
         <div 

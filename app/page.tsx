@@ -14,22 +14,12 @@ export default function Home() {
   return (
     <>
       <div 
-        className="fixed inset-0 z-[-1] h-full w-full pointer-events-none"
-        style={{
-          background: `linear-gradient(
-            to bottom,
-            #EAF5F0 0%,
-            #F4F0FA 18%,
-            #EDE8F7 32%,
-            #E8F3EE 48%,
-            #F2EEF9 64%,
-            #EAF5F0 78%,
-            #2C2C3E 88%,
-            #1E1E2E 100%
-          )`,
-          backgroundAttachment: 'fixed'
-        }}
-      />
+        className="fixed inset-0 z-[-1] h-full w-full bg-[#FAFAFC] pointer-events-none overflow-hidden"
+      >
+        <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-mint/15 blur-[120px] animate-orb-1" />
+        <div className="absolute top-[20%] right-[-10%] w-[50%] h-[70%] rounded-full bg-lavender/15 blur-[120px] animate-orb-2" />
+        <div className="absolute bottom-[-10%] left-[20%] w-[70%] h-[50%] rounded-full bg-mint/10 blur-[120px] animate-orb-3" />
+      </div>
       <Navbar />
       <PageTransition>
         <Hero />

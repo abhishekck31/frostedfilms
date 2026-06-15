@@ -81,7 +81,7 @@ function FooterColumn({
 
 export default function Footer() {
   return (
-    <footer id="footer" className="relative text-white z-10 pt-8">
+    <footer id="footer" className="relative text-white z-10 pt-8 bg-[#1E1E2E]">
       <div className="container-xl pb-14 md:pb-16">
         <div className="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
           <div className="sm:col-span-2 lg:col-span-1">
