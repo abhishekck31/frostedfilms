@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import Link from "next/link";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
@@ -228,13 +229,22 @@ function BlackoutFilmIcon() {
 }
 
 export default function Services() {
+  const targetRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start center", "start start"],
+  });
+  const eyebrowColor = useTransform(scrollYProgress, [0, 1], ["#6BB8A0", "#9B8CC8"]);
+
   return (
-    <section id="services" className="section-pad bg-frost-white">
+    <section id="services" ref={targetRef} className="flow-section relative">
       <div className="container-xl">
         <header className="mx-auto mb-16 max-w-2xl text-center">
-          <SplitReveal as="p" className="mb-4 text-[13px] font-medium uppercase tracking-[0.15em] text-mint-dark">
-            What We Do
-          </SplitReveal>
+          <motion.div style={{ color: eyebrowColor }}>
+            <SplitReveal as="h2" className="eyebrow mb-4">
+              What We Do
+            </SplitReveal>
+          </motion.div>
           <GradientHeadline className="headline text-4xl font-normal tracking-tight text-deep md:text-[48px] md:leading-tight">
             Six Ways to Transform Your Glass
           </GradientHeadline>
@@ -243,7 +253,7 @@ export default function Services() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-4 text-base text-muted"
+            className="body-text mx-auto max-w-[500px]"
           >
             Every film is professionally installed at your location across
             Bengaluru
@@ -267,7 +277,7 @@ export default function Services() {
                   <service.Icon />
                 </IconWrapper>
 
-                <h3 className="headline mb-3 text-xl font-normal leading-snug text-deep">
+                <h3 className="mb-3 text-xl font-medium leading-snug text-deep">
                   {service.name}
                 </h3>
 

@@ -104,7 +104,7 @@ export default function Hero() {
     <section
       id="hero"
       ref={targetRef}
-      className="relative min-h-screen overflow-hidden flex items-center bg-white"
+      className="relative min-h-screen overflow-hidden flex flex-col justify-center"
     >
       <motion.div
         className="absolute inset-0 z-0 pointer-events-none"
@@ -222,6 +222,25 @@ export default function Hero() {
       >
         <ChevronDown className="h-6 w-6" strokeWidth={1.5} />
       </motion.a>
+
+      {/* Floating Transition Shield */}
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-20 pointer-events-none opacity-[0.06]">
+        <svg
+          viewBox="0 0 32 36"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden
+          className="w-[200px] h-[225px] animate-[spin_60s_linear_infinite]"
+        >
+          <path d="M16 1.5L29 6.5V17.5C29 26.5 23 32.5 16 34.5C9 32.5 3 26.5 3 17.5V6.5L16 1.5Z" fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+        </svg>
+      </div>
+
+      {/* Gradient Fade Pulling to Services */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-[120px] z-10 pointer-events-none"
+        style={{ background: 'linear-gradient(to bottom, transparent, #F4F0FA)' }}
+      />
     </section>
   );
 }
