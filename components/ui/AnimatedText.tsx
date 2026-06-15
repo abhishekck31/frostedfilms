@@ -30,10 +30,12 @@ function extractWords(node: React.ReactNode): React.ReactNode[] {
   return [];
 }
 
-export function RevealText({ children, className, delay = 0, as: Component = "h1" }: { children: React.ReactNode; className?: string; delay?: number; as?: React.ElementType }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function RevealText({ children, className, delay = 0, as: Component = "h1" }: { children: React.ReactNode; className?: string; delay?: number; as?: any }) {
   const shouldReduceMotion = useReducedMotion();
   const words = React.Children.toArray(children).flatMap(extractWords);
-  const MotionComponent = motion[Component as keyof typeof motion] || motion.h1;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionComponent: any = (motion as any)[Component] || motion.h1;
 
   return (
     <MotionComponent
@@ -105,9 +107,11 @@ export function CountUp({ from = 0, to, duration = 2, suffix = "", className }: 
   );
 }
 
-export function GradientHeadline({ children, className, as: Component = "h2" }: { children: React.ReactNode; className?: string; as?: React.ElementType }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function GradientHeadline({ children, className, as: Component = "h2" }: { children: React.ReactNode; className?: string; as?: any }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionComponent = motion[Component as keyof typeof motion] || motion.h2;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionComponent: any = (motion as any)[Component] || motion.h2;
 
   return (
     <MotionComponent
@@ -130,9 +134,11 @@ export function GradientHeadline({ children, className, as: Component = "h2" }: 
   );
 }
 
-export function SplitReveal({ children, className, delay = 0, as: Component = "span" }: { children: string; className?: string; delay?: number; as?: React.ElementType }) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function SplitReveal({ children, className, delay = 0, as: Component = "span" }: { children: string; className?: string; delay?: number; as?: any }) {
   const shouldReduceMotion = useReducedMotion();
-  const MotionComponent = motion[Component as keyof typeof motion] || motion.span;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const MotionComponent: any = (motion as any)[Component] || motion.span;
   const chars = children.split("");
 
   return (
