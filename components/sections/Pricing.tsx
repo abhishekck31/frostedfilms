@@ -355,7 +355,6 @@ export default function Pricing() {
           </div>
         </motion.div>
       </div>
-    </div>
-    </section >
+    </section>
   );
 }
