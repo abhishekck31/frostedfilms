@@ -95,7 +95,7 @@ export default function Testimonials() {
                   ★★★★★
                 </p>
 
-                <p className="headline relative z-10 mb-6 flex-1 text-[17px] italic leading-relaxed text-deep">
+                <p className="relative z-10 mb-6 flex-1 text-[15px] leading-relaxed text-muted">
                   &ldquo;{item.quote}&rdquo;
                 </p>
 
