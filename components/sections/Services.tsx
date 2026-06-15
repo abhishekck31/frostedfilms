@@ -1,13 +1,15 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
-import Link from "next/link";
+import { useRef, useState } from "react";
 import { GlassCard } from "@/components/ui/GlassCard";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
+import { ServiceModal } from "@/components/ui/ServiceModal";
+import { serviceData, ServiceDetails } from "@/lib/services";
 
 const services = [
   {
+    id: "frosted-film",
     name: "Frosted Film",
     price: 100,
     description:
@@ -15,6 +17,7 @@ const services = [
     Icon: FrostedFilmIcon,
   },
   {
+    id: "office-cabin",
     name: "Office Cabin Lines Frosted Film",
     price: 115,
     description:
@@ -22,6 +25,7 @@ const services = [
     Icon: CabinLinesIcon,
   },
   {
+    id: "sun-control",
     name: "Sun Control Film (Window Glasses)",
     price: 105,
     description:
@@ -29,6 +33,7 @@ const services = [
     Icon: SunControlIcon,
   },
   {
+    id: "one-way-vision",
     name: "One Way Vision + Heat Control Film",
     price: 130,
     description:
@@ -36,6 +41,7 @@ const services = [
     Icon: OneWayVisionIcon,
   },
   {
+    id: "decorative",
     name: "Decorative Glass Film",
     price: 125,
     description:
@@ -43,6 +49,7 @@ const services = [
     Icon: DecorativeFilmIcon,
   },
   {
+    id: "black-out",
     name: "Black Out Film (Windows, Black Colour)",
     price: 110,
     description:
@@ -230,14 +237,23 @@ function BlackoutFilmIcon() {
 
 export default function Services() {
   const targetRef = useRef<HTMLElement>(null);
+  const [selectedService, setSelectedService] = useState<ServiceDetails | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { scrollYProgress } = useScroll({
     target: targetRef,
     offset: ["start center", "start start"],
   });
   const eyebrowColor = useTransform(scrollYProgress, [0, 1], ["#6BB8A0", "#9B8CC8"]);
 
+  const handleOpenModal = (id: string) => {
+    setSelectedService(serviceData[id]);
+    setIsModalOpen(true);
+  };
+
   return (
-    <section id="services" ref={targetRef} className="flow-section relative">
+    <>
+      <section id="services" ref={targetRef} className="flow-section relative">
       <div className="container-xl">
         <header className="mx-auto mb-16 max-w-2xl text-center">
           <motion.div style={{ color: eyebrowColor }}>
@@ -289,17 +305,24 @@ export default function Services() {
                   {service.description}
                 </p>
 
-                <Link
-                  href="#contact"
+                <button
+                  onClick={() => handleOpenModal(service.id)}
                   className="text-sm font-medium text-lavender transition-colors hover:text-lavender-dark"
                 >
                   Learn More →
-                </Link>
+                </button>
               </GlassCard>
             </motion.article>
           ))}
         </motion.div>
       </div>
     </section>
+
+    <ServiceModal 
+      isOpen={isModalOpen}
+      onClose={() => setIsModalOpen(false)}
+      service={selectedService}
+    />
+    </>
   );
 }
