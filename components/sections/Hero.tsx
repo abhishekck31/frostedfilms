@@ -2,7 +2,7 @@
 
 import { useScrollPosition } from "@/hooks/useScrollPosition";
 import { cn } from "@/lib/utils";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, MotionValue } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { AmbientOrbs } from "@/components/ui/AmbientOrbs";
@@ -31,7 +31,7 @@ const buttonHover = {
   transition: { type: "spring" as const, stiffness: 400, damping: 25 },
 };
 
-function AnimatedShield({ cycleIndex, parallaxY }: { cycleIndex: number, parallaxY: any }) {
+function AnimatedShield({ cycleIndex, parallaxY }: { cycleIndex: number, parallaxY: MotionValue<number> }) {
   return (
     <motion.div
       style={{ y: parallaxY }}

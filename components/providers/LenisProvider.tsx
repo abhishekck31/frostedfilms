@@ -5,6 +5,7 @@ import { useAnimationFrame } from "framer-motion";
 import { ReactNode, useRef } from "react";
 
 export default function LenisProvider({ children }: { children: ReactNode }) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const lenisRef = useRef<any>(null);
 
   useAnimationFrame((time) => {

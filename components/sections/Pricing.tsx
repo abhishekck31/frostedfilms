@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
-import { section } from "framer-motion/client";
 
 const pricingPlans = [
   {

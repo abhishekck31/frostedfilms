@@ -72,7 +72,7 @@ export default function Testimonials() {
             Client Stories
           </SplitReveal>
           <GradientHeadline className="headline text-4xl font-normal tracking-tight text-deep md:text-[48px] md:leading-tight">
-            Trusted by Bengaluru's Best
+            Trusted by Bengaluru&apos;s Best
           </GradientHeadline>
         </header>
 

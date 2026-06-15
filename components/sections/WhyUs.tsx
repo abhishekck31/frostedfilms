@@ -185,7 +185,6 @@ function StatItem({
   stat: (typeof stats)[number];
   isLast: boolean;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
   return (
     <div className="relative flex flex-1 flex-col items-center px-4 py-2 text-center">
       <p className="headline text-[40px] font-normal leading-none text-white md:text-[52px]">
@@ -242,7 +241,7 @@ export default function WhyUs() {
                 Why Choose Us
               </SplitReveal>
               <GradientHeadline className="headline mb-10 text-[32px] font-normal leading-tight tracking-tight text-deep md:text-[42px]">
-                We Don't Just Install Films. We Deliver Confidence.
+                We Don&apos;t Just Install Films. We Deliver Confidence.
               </GradientHeadline>
 
               <motion.div

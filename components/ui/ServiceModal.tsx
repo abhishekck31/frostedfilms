@@ -76,7 +76,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                     {service.name}
                   </span>
                   <h2 className="text-3xl font-semibold text-white mb-2">{service.name}</h2>
-                  <p className="text-xl text-lavender-light/90 italic font-serif">"{service.tagline}"</p>
+                  <p className="text-xl text-lavender-light/90 italic font-serif">&quot;{service.tagline}&quot;</p>
                 </div>
 
                 <div className="mb-8">

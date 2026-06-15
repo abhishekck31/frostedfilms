@@ -12,6 +12,7 @@ function extractWords(node: React.ReactNode): React.ReactNode[] {
   if (React.isValidElement(node)) {
     if (node.type === "br") return [node];
     
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const children = React.Children.toArray((node.props as any).children);
     const words = children.flatMap(extractWords);
     
@@ -29,7 +30,7 @@ function extractWords(node: React.ReactNode): React.ReactNode[] {
   return [];
 }
 
-export function RevealText({ children, className, delay = 0, as: Component = "h1" }: { children: React.ReactNode; className?: string; delay?: number; as?: any }) {
+export function RevealText({ children, className, delay = 0, as: Component = "h1" }: { children: React.ReactNode; className?: string; delay?: number; as?: React.ElementType }) {
   const shouldReduceMotion = useReducedMotion();
   const words = React.Children.toArray(children).flatMap(extractWords);
   const MotionComponent = motion[Component as keyof typeof motion] || motion.h1;
@@ -104,7 +105,7 @@ export function CountUp({ from = 0, to, duration = 2, suffix = "", className }: 
   );
 }
 
-export function GradientHeadline({ children, className, as: Component = "h2" }: { children: React.ReactNode; className?: string; as?: any }) {
+export function GradientHeadline({ children, className, as: Component = "h2" }: { children: React.ReactNode; className?: string; as?: React.ElementType }) {
   const shouldReduceMotion = useReducedMotion();
   const MotionComponent = motion[Component as keyof typeof motion] || motion.h2;
 
@@ -129,7 +130,7 @@ export function GradientHeadline({ children, className, as: Component = "h2" }: 
   );
 }
 
-export function SplitReveal({ children, className, delay = 0, as: Component = "span" }: { children: string; className?: string; delay?: number; as?: any }) {
+export function SplitReveal({ children, className, delay = 0, as: Component = "span" }: { children: string; className?: string; delay?: number; as?: React.ElementType }) {
   const shouldReduceMotion = useReducedMotion();
   const MotionComponent = motion[Component as keyof typeof motion] || motion.span;
   const chars = children.split("");
