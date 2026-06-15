@@ -197,16 +197,16 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="container-xl relative z-10 my-[120px]">
+      <div className="container-xl relative z-10 my-[80px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mx-auto w-full max-w-[700px] rounded-[24px] bg-[#2C2C3E] shadow-[0_32px_80px_rgba(44,44,62,0.15)] overflow-hidden"
+          className="mx-auto w-full max-w-[540px] rounded-[20px] bg-[#2C2C3E] shadow-[0_32px_80px_rgba(44,44,62,0.15)] overflow-hidden"
         >
-          <div className="p-8 pb-4 text-center">
-            <GradientHeadline className="headline mb-3 text-[32px] font-normal tracking-tight text-white md:text-[40px] md:leading-tight">
+          <div className="p-6 pb-2 text-center">
+            <GradientHeadline className="headline mb-2 text-[28px] font-normal tracking-tight text-white md:text-[32px] md:leading-tight">
               Calculate Your Quote
             </GradientHeadline>
             <motion.p
@@ -214,13 +214,13 @@ export default function Pricing() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-[15px] text-lavender-light/70"
+              className="text-[14px] text-lavender-light/70"
             >
               Get an instant estimate for your space
             </motion.p>
           </div>
 
-          <div className="space-y-6 p-8 pt-6">
+          <div className="space-y-5 p-6 pt-4">
             <div>
               <label
                 htmlFor="film-type"
