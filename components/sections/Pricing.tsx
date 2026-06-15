@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
 import { useMemo, useState } from "react";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
+import { section } from "framer-motion/client";
 
 const pricingPlans = [
   {
@@ -209,152 +210,152 @@ export default function Pricing() {
               Calculate Your Quote
             </GradientHeadline>
             <motion.p
-               initial={{ opacity: 0 }}
-               whileInView={{ opacity: 1 }}
-               viewport={{ once: true }}
-               transition={{ duration: 0.6, delay: 0.2 }}
-               className="text-[15px] text-lavender-light/70"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-[15px] text-lavender-light/70"
             >
               Get an instant estimate for your space
             </motion.p>
           </div>
 
           <div className="space-y-6 p-8 pt-6">
-              <div>
-                <label
-                  htmlFor="film-type"
-                  className="mb-2 block text-sm font-medium text-white/90"
-                >
-                  Step 1 — Select Film Type
-                </label>
-                <select
-                  id="film-type"
-                  value={selectedFilm}
-                  onChange={(e) => setSelectedFilm(Number(e.target.value))}
-                  className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
-                >
-                  {pricingPlans.map((plan, index) => (
-                    <option key={plan.name} value={index}>
-                      {plan.name} — ₹{plan.price}/sqft
-                    </option>
-                  ))}
-                </select>
-              </div>
+            <div>
+              <label
+                htmlFor="film-type"
+                className="mb-2 block text-sm font-medium text-white/90"
+              >
+                Step 1 — Select Film Type
+              </label>
+              <select
+                id="film-type"
+                value={selectedFilm}
+                onChange={(e) => setSelectedFilm(Number(e.target.value))}
+                className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
+              >
+                {pricingPlans.map((plan, index) => (
+                  <option key={plan.name} value={index}>
+                    {plan.name} — ₹{plan.price}/sqft
+                  </option>
+                ))}
+              </select>
+            </div>
 
-              <div>
-                <p className="mb-3 text-sm font-medium text-white/90">
-                  Step 2 — Enter Area
-                </p>
-                <div className="grid grid-cols-2 gap-3">
-                  <div>
-                    <label htmlFor="width" className="mb-1.5 block text-xs text-white/50">
-                      Width (ft)
-                    </label>
-                    <input
-                      id="width"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="e.g. 4"
-                      value={width}
-                      onChange={(e) =>
-                        handleWidthHeightChange(e.target.value, height)
-                      }
-                      className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="height" className="mb-1.5 block text-xs text-white/50">
-                      Height (ft)
-                    </label>
-                    <input
-                      id="height"
-                      type="number"
-                      min="0"
-                      step="0.1"
-                      placeholder="e.g. 5"
-                      value={height}
-                      onChange={(e) =>
-                        handleWidthHeightChange(width, e.target.value)
-                      }
-                      className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
-                    />
-                  </div>
-                </div>
-                <div className="relative my-4 flex items-center">
-                  <div className="flex-1 border-t border-white/10" />
-                  <span className="px-3 text-xs text-white/40">or enter sqft directly</span>
-                  <div className="flex-1 border-t border-white/10" />
-                </div>
+            <div>
+              <p className="mb-3 text-sm font-medium text-white/90">
+                Step 2 — Enter Area
+              </p>
+              <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label htmlFor="sqft" className="mb-1.5 block text-xs text-white/50">
-                    Total Area (sqft)
+                  <label htmlFor="width" className="mb-1.5 block text-xs text-white/50">
+                    Width (ft)
                   </label>
                   <input
-                    id="sqft"
+                    id="width"
                     type="number"
                     min="0"
                     step="0.1"
-                    placeholder="e.g. 20"
-                    value={directSqft}
-                    onChange={(e) => {
-                      setDirectSqft(e.target.value);
-                      setWidth("");
-                      setHeight("");
-                    }}
+                    placeholder="e.g. 4"
+                    value={width}
+                    onChange={(e) =>
+                      handleWidthHeightChange(e.target.value, height)
+                    }
+                    className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="height" className="mb-1.5 block text-xs text-white/50">
+                    Height (ft)
+                  </label>
+                  <input
+                    id="height"
+                    type="number"
+                    min="0"
+                    step="0.1"
+                    placeholder="e.g. 5"
+                    value={height}
+                    onChange={(e) =>
+                      handleWidthHeightChange(width, e.target.value)
+                    }
                     className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
                   />
                 </div>
               </div>
-
+              <div className="relative my-4 flex items-center">
+                <div className="flex-1 border-t border-white/10" />
+                <span className="px-3 text-xs text-white/40">or enter sqft directly</span>
+                <div className="flex-1 border-t border-white/10" />
+              </div>
               <div>
-                <label
-                  htmlFor="quantity"
-                  className="mb-2 block text-sm font-medium text-white/90"
-                >
-                  Step 3 — Quantity (windows / panels)
+                <label htmlFor="sqft" className="mb-1.5 block text-xs text-white/50">
+                  Total Area (sqft)
                 </label>
                 <input
-                  id="quantity"
+                  id="sqft"
                   type="number"
-                  min="1"
-                  step="1"
-                  value={quantity}
-                  onChange={(e) => setQuantity(e.target.value)}
-                  className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
+                  min="0"
+                  step="0.1"
+                  placeholder="e.g. 20"
+                  value={directSqft}
+                  onChange={(e) => {
+                    setDirectSqft(e.target.value);
+                    setWidth("");
+                    setHeight("");
+                  }}
+                  className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/20 outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
                 />
               </div>
-
-              <div className="rounded-2xl bg-white/5 px-5 py-6 text-center border border-white/5">
-                <p className="mb-2 text-sm font-medium text-white/60">
-                  Estimated Total
-                </p>
-                <p className="headline bg-gradient-to-r from-mint to-lavender bg-clip-text text-[40px] font-normal leading-none text-transparent md:text-[48px]">
-                  ₹{formatCurrency(estimatedTotal)}
-                </p>
-                <p className="mt-3 text-sm text-white/50">
-                  {areaSqft > 0 ? areaSqft.toLocaleString("en-IN") : "0"} sqft ×
-                  ₹{film.price}/sqft × {quantityNum}{" "}
-                  {quantityNum === 1 ? "panel" : "panels"}
-                </p>
-              </div>
-
-              <p className="text-center text-xs leading-relaxed text-white/40">
-                *Final quote may vary based on site visit and installation
-                complexity
-              </p>
-
-              <button
-                type="button"
-                onClick={scrollToContact}
-                className="w-full rounded-full bg-gradient-to-r from-mint to-lavender px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(168,213,194,0.45)]"
-              >
-                Get Exact Quote
-              </button>
             </div>
-          </motion.div>
-        </div>
+
+            <div>
+              <label
+                htmlFor="quantity"
+                className="mb-2 block text-sm font-medium text-white/90"
+              >
+                Step 3 — Quantity (windows / panels)
+              </label>
+              <input
+                id="quantity"
+                type="number"
+                min="1"
+                step="1"
+                value={quantity}
+                onChange={(e) => setQuantity(e.target.value)}
+                className="touch-target w-full min-h-[44px] rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-sm text-white outline-none transition-colors focus:border-mint focus:ring-2 focus:ring-mint/20"
+              />
+            </div>
+
+            <div className="rounded-2xl bg-white/5 px-5 py-6 text-center border border-white/5">
+              <p className="mb-2 text-sm font-medium text-white/60">
+                Estimated Total
+              </p>
+              <p className="headline bg-gradient-to-r from-mint to-lavender bg-clip-text text-[40px] font-normal leading-none text-transparent md:text-[48px]">
+                ₹{formatCurrency(estimatedTotal)}
+              </p>
+              <p className="mt-3 text-sm text-white/50">
+                {areaSqft > 0 ? areaSqft.toLocaleString("en-IN") : "0"} sqft ×
+                ₹{film.price}/sqft × {quantityNum}{" "}
+                {quantityNum === 1 ? "panel" : "panels"}
+              </p>
+            </div>
+
+            <p className="text-center text-xs leading-relaxed text-white/40">
+              *Final quote may vary based on site visit and installation
+              complexity
+            </p>
+
+            <button
+              type="button"
+              onClick={scrollToContact}
+              className="w-full rounded-full bg-gradient-to-r from-mint to-lavender px-6 py-3.5 text-base font-semibold text-white transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_8px_24px_rgba(168,213,194,0.45)]"
+            >
+              Get Exact Quote
+            </button>
+          </div>
+        </motion.div>
       </div>
-    </section>
+    </div>
+    </section >
   );
 }
