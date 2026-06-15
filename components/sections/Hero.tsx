@@ -50,19 +50,19 @@ function AnimatedShield({ cycleIndex, parallaxY }: { cycleIndex: number, paralla
           <clipPath id="hero-main-shield">
             <path d="M16 1.5L29 6.5V17.5C29 26.5 23 32.5 16 34.5C9 32.5 3 26.5 3 17.5V6.5L16 1.5Z" />
           </clipPath>
-          <linearGradient id="shield-base" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0%" stopColor="#D6EDE6" stopOpacity="0.5" />
-            <stop offset="100%" stopColor="#EAE5F5" stopOpacity="0.7" />
-          </linearGradient>
         </defs>
         
         <g clipPath="url(#hero-main-shield)">
-          <rect width="32" height="36" fill="url(#shield-base)" />
-          {/* SVG foreignObject lets us use normal CSS for the background pattern */}
+          {/* Logo Right Side (Mint) */}
+          <rect width="32" height="36" fill="rgba(168, 213, 194, 0.5)" />
+          {/* Logo Left Side (Lavender) */}
+          <path d="M0 0L32 36H0V0Z" fill="rgba(196, 184, 224, 0.6)" />
+          {/* Glass Texture */}
           <foreignObject width="32" height="36">
             <div className="w-full h-full glass-pattern-drift opacity-60" />
           </foreignObject>
-          <path d="M0 0L32 36H0V0Z" fill="rgba(255,255,255,0.15)" />
+          {/* Optional highlight */}
+          <path d="M0 0L32 36H0V0Z" fill="rgba(255,255,255,0.1)" />
         </g>
         
         <path
@@ -232,7 +232,16 @@ export default function Hero() {
           aria-hidden
           className="w-[200px] h-[225px] animate-[spin_60s_linear_infinite]"
         >
-          <path d="M16 1.5L29 6.5V17.5C29 26.5 23 32.5 16 34.5C9 32.5 3 26.5 3 17.5V6.5L16 1.5Z" fill="currentColor" stroke="currentColor" strokeWidth="2"/>
+          <defs>
+            <clipPath id="floating-shield-clip">
+              <path d="M16 1.5L29 6.5V17.5C29 26.5 23 32.5 16 34.5C9 32.5 3 26.5 3 17.5V6.5L16 1.5Z" />
+            </clipPath>
+          </defs>
+          <g clipPath="url(#floating-shield-clip)">
+            <rect width="32" height="36" fill="#A8D5C2" />
+            <path d="M0 0L32 36H0V0Z" fill="#C4B8E0" />
+          </g>
+          <path d="M16 1.5L29 6.5V17.5C29 26.5 23 32.5 16 34.5C9 32.5 3 26.5 3 17.5V6.5L16 1.5Z" stroke="currentColor" strokeWidth="0.5"/>
         </svg>
       </div>
 
