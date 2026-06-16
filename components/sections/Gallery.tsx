@@ -6,25 +6,32 @@ import { useRef, useState, useMemo } from "react";
 import { GradientHeadline, SplitReveal } from "@/components/ui/AnimatedText";
 import { WaveDivider } from "@/components/ui/WaveDivider";
 
-type GalleryCategory = "Frosted" | "Sun Control" | "Decorative" | "Office";
+import Image from "next/image";
 
-const filters = ["All", "Frosted", "Sun Control", "Decorative", "Office"] as const;
+type GalleryCategory = "Frosted" | "Sun Control" | "Office";
+
+const filters = ["All", "Frosted", "Sun Control", "Office"] as const;
 
 const galleryItems: {
   label: string;
   category: GalleryCategory;
   height: number;
-  variant: "mint" | "lavender" | "frost";
+  image: string;
 }[] = [
-  { label: "Office Cabin Film", category: "Office", height: 500, variant: "mint" },
-  { label: "Sun Control Install", category: "Sun Control", height: 420, variant: "lavender" },
-  { label: "Decorative Film", category: "Decorative", height: 500, variant: "frost" },
-  { label: "Frosted Bathroom Glass", category: "Frosted", height: 460, variant: "mint" },
-  { label: "One Way Vision Window", category: "Sun Control", height: 500, variant: "lavender" },
-  { label: "Corporate Partition Film", category: "Office", height: 440, variant: "frost" },
-  { label: "Living Room Decorative", category: "Decorative", height: 500, variant: "mint" },
-  { label: "Frosted Office Partitions", category: "Frosted", height: 420, variant: "lavender" },
-  { label: "Blackout Film Install", category: "Frosted", height: 500, variant: "frost" },
+  { label: "Office Cabin Lines", category: "Office", height: 500, image: "/Lines frosted for office/image.png" },
+  { label: "Office Cabin Lines 2", category: "Office", height: 420, image: "/Lines frosted for office/image copy.png" },
+  { label: "Office Cabin Lines 3", category: "Office", height: 500, image: "/Lines frosted for office/image copy 2.png" },
+
+  { label: "Sunfilm Reflective", category: "Sun Control", height: 460, image: "/Sunfilm reflective/image.png" },
+  { label: "Sunfilm Reflective 2", category: "Sun Control", height: 500, image: "/Sunfilm reflective/image copy.png" },
+  { label: "Sunfilm Reflective 3", category: "Sun Control", height: 440, image: "/Sunfilm reflective/image copy 2.png" },
+  { label: "Sunfilm Reflective 4", category: "Sun Control", height: 500, image: "/Sunfilm reflective/image copy 3.png" },
+  { label: "Sunfilm Reflective 5", category: "Sun Control", height: 420, image: "/Sunfilm reflective/image copy 4.png" },
+
+  { label: "Frosted Film", category: "Frosted", height: 500, image: "/frostedfilm/image.png" },
+  { label: "Frosted Film 2", category: "Frosted", height: 460, image: "/frostedfilm/image copy.png" },
+  { label: "Frosted Film 3", category: "Frosted", height: 420, image: "/frostedfilm/image copy 2.png" },
+  { label: "Frosted Film 4", category: "Frosted", height: 500, image: "/frostedfilm/image copy 3.png" },
 ];
 
 export default function Gallery() {
@@ -148,10 +155,11 @@ export default function Gallery() {
                   )}
                   style={{ width: 380, height: item.height }}
                 >
-                  {/* Taller thinner frosted panels */}
-                  <div
-                    className="absolute inset-0 -z-10"
-                    style={{ background: 'rgba(255,255,255,0.4)', backdropFilter: 'blur(24px)' }}
+                  <Image
+                    src={item.image}
+                    alt={item.label}
+                    fill
+                    className="absolute inset-0 -z-10 object-cover"
                   />
 
                   {/* Overlay on hover */}
@@ -211,9 +219,11 @@ export default function Gallery() {
               className="glass-card relative overflow-hidden rounded-2xl w-full flex flex-col justify-end p-6 border border-white/40"
               style={{ height: 380 }}
             >
-              <div
-                className="absolute inset-0 -z-10"
-                style={{ background: 'rgba(255,255,255,0.4)', backdropFilter: 'blur(24px)' }}
+              <Image
+                src={item.image}
+                alt={item.label}
+                fill
+                className="absolute inset-0 -z-10 object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-deep/70 via-deep/20 to-transparent p-6 flex flex-col justify-end">
                 <span className="w-fit px-3 py-1 bg-white/20 backdrop-blur-md rounded-full text-xs font-semibold text-white mb-2">

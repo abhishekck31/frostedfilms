@@ -36,8 +36,14 @@ const contactInfo = [
   {
     icon: "📱",
     label: "Instagram",
-    value: "@Printing_Solutions (frosted film info)",
-    href: "https://instagram.com/Printing_Solutions",
+    value: "@frostedfilm.in",
+    href: "https://www.instagram.com/frostedfilm.in",
+  },
+  {
+    icon: "✉️",
+    label: "Email",
+    value: "frostedfilms389@gmail.com",
+    href: "mailto:frostedfilms389@gmail.com",
   },
   {
     icon: "🌐",

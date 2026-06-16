@@ -153,7 +153,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="https://instagram.com/Printing_Solutions"
+                  href="https://www.instagram.com/frostedfilm.in"
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label="Follow us on Instagram"
