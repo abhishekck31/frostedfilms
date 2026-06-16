@@ -23,10 +23,10 @@ export default function Home() {
       <Navbar />
       <PageTransition>
         <Hero />
+        <Gallery />
         <Services />
         <WhyUs />
         <Pricing />
-        <Gallery />
         <Testimonials />
         <Contact />
       </PageTransition>
