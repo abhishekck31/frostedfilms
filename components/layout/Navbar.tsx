@@ -12,7 +12,6 @@ const SCROLL_THRESHOLD = 80;
 
 const navLinks = [
   { label: "Services", href: "#services", id: "services" },
-  { label: "Pricing", href: "#pricing", id: "pricing" },
   { label: "Gallery", href: "#gallery", id: "gallery" },
   { label: "Contact", href: "#contact", id: "contact" },
 ] as const;

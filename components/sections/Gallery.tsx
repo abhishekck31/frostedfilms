@@ -8,9 +8,9 @@ import { WaveDivider } from "@/components/ui/WaveDivider";
 
 import Image from "next/image";
 
-type GalleryCategory = "Frosted" | "Sun Control" | "Office";
+type GalleryCategory = "Frosted" | "Sun Control" | "Office" | "Digital Printing" | "Blackout" | "Decorative";
 
-const filters = ["All", "Frosted", "Sun Control", "Office"] as const;
+const filters = ["All", "Frosted", "Sun Control", "Office", "Digital Printing", "Blackout", "Decorative"] as const;
 
 const galleryItems: {
   label: string;
@@ -32,6 +32,15 @@ const galleryItems: {
   { label: "Frosted Film 2", category: "Frosted", height: 460, image: "/frostedfilm/image copy.png" },
   { label: "Frosted Film 3", category: "Frosted", height: 420, image: "/frostedfilm/image copy 2.png" },
   { label: "Frosted Film 4", category: "Frosted", height: 500, image: "/frostedfilm/image copy 3.png" },
+
+  { label: "Digital Printing 1", category: "Digital Printing", height: 500, image: "/digitalprinting/WhatsApp Image 2026-06-30 at 3.19.47 PM.jpeg" },
+  { label: "Digital Printing 2", category: "Digital Printing", height: 460, image: "/digitalprinting/WhatsApp Image 2026-06-30 at 3.19.48 PM.jpeg" },
+
+  { label: "Decorative Film 1", category: "Decorative", height: 500, image: "/decorativefilm/WhatsApp Image 2026-06-30 at 3.23.28 PM.jpeg" },
+  { label: "Decorative Film 2", category: "Decorative", height: 460, image: "/decorativefilm/WhatsApp Image 2026-06-30 at 3.23.37 PM.jpeg" },
+
+  { label: "Blackout Film 1", category: "Blackout", height: 500, image: "/suncontrolfilm/WhatsApp Image 2026-06-30 at 3.25.20 PM.jpeg" },
+  { label: "Blackout Film 2", category: "Blackout", height: 460, image: "/suncontrolfilm/WhatsApp Image 2026-06-30 at 3.25.39 PM.jpeg" },
 ];
 
 export default function Gallery() {

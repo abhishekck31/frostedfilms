@@ -5,7 +5,6 @@ import WhatsAppButton from "@/components/layout/WhatsAppButton";
 import Contact from "@/components/sections/Contact";
 import Gallery from "@/components/sections/Gallery";
 import Hero from "@/components/sections/Hero";
-import Pricing from "@/components/sections/Pricing";
 import Services from "@/components/sections/Services";
 import Testimonials from "@/components/sections/Testimonials";
 import WhyUs from "@/components/sections/WhyUs";
@@ -26,7 +25,6 @@ export default function Home() {
         <Gallery />
         <Services />
         <WhyUs />
-        <Pricing />
         <Testimonials />
         <Contact />
       </PageTransition>

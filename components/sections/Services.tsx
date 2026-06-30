@@ -56,9 +56,15 @@ const services = [
       "Complete light blockage for total privacy and darkness",
     Icon: BlackoutFilmIcon,
   },
+  {
+    id: "digital-printing",
+    name: "Digital Printing",
+    price: 135,
+    description:
+      "Custom designs, logos, and high-resolution images for your glass",
+    Icon: DecorativeFilmIcon,
+  },
 ] as const;
-
-
 
 const gridVariants = {
   hidden: {},

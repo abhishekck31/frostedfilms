@@ -123,5 +123,24 @@ export const serviceData: Record<string, ServiceDetails> = {
       { label: "Finish", value: "Opaque Black" },
       { label: "Thickness", value: "2 mil" }
     ]
+  },
+  "digital-printing": {
+    id: "digital-printing",
+    name: "Digital Printing",
+    price: 135,
+    priceUnit: "per sqft",
+    tagline: "Custom designs and branding on your glass.",
+    description: "Personalize your space with custom graphics, logos, or high-resolution images printed directly onto window films. Ideal for corporate branding or unique interior design elements.",
+    features: [
+      "Customizable with any high-res image or logo",
+      "Vibrant colors and crisp details",
+      "Available on frosted, clear, or opaque films",
+      "Durable and fade-resistant"
+    ],
+    specs: [
+      { label: "Design", value: "Fully Custom" },
+      { label: "Film Base", value: "Variable" },
+      { label: "Thickness", value: "2-4 mil" }
+    ]
   }
 };
